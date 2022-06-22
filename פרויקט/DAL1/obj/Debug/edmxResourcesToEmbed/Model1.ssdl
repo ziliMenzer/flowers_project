@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FlowerProjectModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="FlowerInGarden">
+    <Key>
+      <PropertyRef Name="flowerInGardenId" />
+    </Key>
+    <Property Name="flowerInGardenId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="gardenId" Type="int" Nullable="false" />
+    <Property Name="wateringId" Type="int" />
+    <Property Name="potType" Type="nvarchar" MaxLength="50" />
+    <Property Name="potSize" Type="int" />
+    <Property Name="flowerName" Type="nvarchar" MaxLength="50" />
+    <Property Name="description" Type="nvarchar" MaxLength="4000" />
+    <Property Name="colour" Type="nvarchar" MaxLength="50" />
+    <Property Name="picture" Type="nvarchar" MaxLength="4000" />
+  </EntityType>
+  <EntityType Name="Flowers">
+    <Key>
+      <PropertyRef Name="flowerId" />
+    </Key>
+    <Property Name="flowerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="flowerName" Type="nvarchar" MaxLength="50" />
+    <Property Name="description" Type="nvarchar" MaxLength="4000" />
+    <Property Name="colour" Type="nvarchar" MaxLength="50" />
+    <Property Name="picture" Type="nvarchar" MaxLength="4000" />
+  </EntityType>
+  <EntityType Name="Gardens">
+    <Key>
+      <PropertyRef Name="gardenId" />
+    </Key>
+    <Property Name="gardenId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="userID" Type="int" />
+    <Property Name="sun" Type="nvarchar" MaxLength="50" />
+    <Property Name="position" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="userId" />
+    </Key>
+    <Property Name="userId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="userPass" Type="nvarchar" MaxLength="50" />
+    <Property Name="userMail" Type="nvarchar" MaxLength="50" />
+    <Property Name="livingArea" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Watering">
+    <Key>
+      <PropertyRef Name="wateringId" />
+    </Key>
+    <Property Name="wateringId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="soilKind" Type="nvarchar" MaxLength="50" />
+    <Property Name="minDays" Type="int" />
+    <Property Name="maxDays" Type="int" />
+  </EntityType>
+  <Association Name="FK__FlowerInG__garde__18EBB532">
+    <End Role="Gardens" Type="Self.Gardens" Multiplicity="1" />
+    <End Role="FlowerInGarden" Type="Self.FlowerInGarden" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gardens">
+        <PropertyRef Name="gardenId" />
+      </Principal>
+      <Dependent Role="FlowerInGarden">
+        <PropertyRef Name="gardenId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__FlowerInG__water__19DFD96B">
+    <End Role="Watering" Type="Self.Watering" Multiplicity="0..1" />
+    <End Role="FlowerInGarden" Type="Self.FlowerInGarden" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Watering">
+        <PropertyRef Name="wateringId" />
+      </Principal>
+      <Dependent Role="FlowerInGarden">
+        <PropertyRef Name="wateringId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Gardens__userID__04E4BC85">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Gardens" Type="Self.Gardens" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="Gardens">
+        <PropertyRef Name="userID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="FlowerProjectModelStoreContainer">
+    <EntitySet Name="FlowerInGarden" EntityType="Self.FlowerInGarden" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Flowers" EntityType="Self.Flowers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Gardens" EntityType="Self.Gardens" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Watering" EntityType="Self.Watering" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__FlowerInG__garde__18EBB532" Association="Self.FK__FlowerInG__garde__18EBB532">
+      <End Role="Gardens" EntitySet="Gardens" />
+      <End Role="FlowerInGarden" EntitySet="FlowerInGarden" />
+    </AssociationSet>
+    <AssociationSet Name="FK__FlowerInG__water__19DFD96B" Association="Self.FK__FlowerInG__water__19DFD96B">
+      <End Role="Watering" EntitySet="Watering" />
+      <End Role="FlowerInGarden" EntitySet="FlowerInGarden" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Gardens__userID__04E4BC85" Association="Self.FK__Gardens__userID__04E4BC85">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Gardens" EntitySet="Gardens" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

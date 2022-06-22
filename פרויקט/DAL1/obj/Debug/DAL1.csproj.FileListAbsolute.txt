@@ -1,0 +1,10 @@
+D:\צילי\פרויקט\DAL1\bin\Debug\DAL1.dll.config
+D:\צילי\פרויקט\DAL1\bin\Debug\DAL1.dll
+D:\צילי\פרויקט\DAL1\bin\Debug\DAL1.pdb
+D:\צילי\פרויקט\DAL1\bin\Debug\EntityFramework.xml
+D:\צילי\פרויקט\DAL1\bin\Debug\EntityFramework.SqlServer.xml
+D:\צילי\פרויקט\DAL1\obj\Debug\DAL1.csproj.CoreCompileInputs.cache
+D:\צילי\פרויקט\DAL1\obj\Debug\DAL1.csproj.CopyComplete
+D:\צילי\פרויקט\DAL1\obj\Debug\DAL1.dll
+D:\צילי\פרויקט\DAL1\obj\Debug\DAL1.pdb
+D:\צילי\פרויקט\DAL1\obj\Debug\DAL1.csprojAssemblyReference.cache

@@ -1,0 +1,316 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="FlowerProjectModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="FlowerInGarden">
+          <Key>
+            <PropertyRef Name="flowerInGardenId" />
+          </Key>
+          <Property Name="flowerInGardenId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="gardenId" Type="int" Nullable="false" />
+          <Property Name="wateringId" Type="int" />
+          <Property Name="potType" Type="nvarchar" MaxLength="50" />
+          <Property Name="potSize" Type="int" />
+          <Property Name="flowerName" Type="nvarchar" MaxLength="50" />
+          <Property Name="description" Type="nvarchar" MaxLength="4000" />
+          <Property Name="colour" Type="nvarchar" MaxLength="50" />
+          <Property Name="picture" Type="nvarchar" MaxLength="4000" />
+        </EntityType>
+        <EntityType Name="Flowers">
+          <Key>
+            <PropertyRef Name="flowerId" />
+          </Key>
+          <Property Name="flowerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="flowerName" Type="nvarchar" MaxLength="50" />
+          <Property Name="description" Type="nvarchar" MaxLength="4000" />
+          <Property Name="colour" Type="nvarchar" MaxLength="50" />
+          <Property Name="picture" Type="nvarchar" MaxLength="4000" />
+        </EntityType>
+        <EntityType Name="Gardens">
+          <Key>
+            <PropertyRef Name="gardenId" />
+          </Key>
+          <Property Name="gardenId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userID" Type="int" />
+          <Property Name="sun" Type="nvarchar" MaxLength="50" />
+          <Property Name="position" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="userId" />
+          </Key>
+          <Property Name="userId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userPass" Type="nvarchar" MaxLength="50" />
+          <Property Name="userMail" Type="nvarchar" MaxLength="50" />
+          <Property Name="livingArea" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Watering">
+          <Key>
+            <PropertyRef Name="wateringId" />
+          </Key>
+          <Property Name="wateringId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="soilKind" Type="nvarchar" MaxLength="50" />
+          <Property Name="minDays" Type="int" />
+          <Property Name="maxDays" Type="int" />
+        </EntityType>
+        <Association Name="FK__FlowerInG__garde__18EBB532">
+          <End Role="Gardens" Type="Self.Gardens" Multiplicity="1" />
+          <End Role="FlowerInGarden" Type="Self.FlowerInGarden" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gardens">
+              <PropertyRef Name="gardenId" />
+            </Principal>
+            <Dependent Role="FlowerInGarden">
+              <PropertyRef Name="gardenId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__FlowerInG__water__19DFD96B">
+          <End Role="Watering" Type="Self.Watering" Multiplicity="0..1" />
+          <End Role="FlowerInGarden" Type="Self.FlowerInGarden" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Watering">
+              <PropertyRef Name="wateringId" />
+            </Principal>
+            <Dependent Role="FlowerInGarden">
+              <PropertyRef Name="wateringId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Gardens__userID__04E4BC85">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="Gardens" Type="Self.Gardens" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="userId" />
+            </Principal>
+            <Dependent Role="Gardens">
+              <PropertyRef Name="userID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="FlowerProjectModelStoreContainer">
+          <EntitySet Name="FlowerInGarden" EntityType="Self.FlowerInGarden" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Flowers" EntityType="Self.Flowers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Gardens" EntityType="Self.Gardens" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Watering" EntityType="Self.Watering" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__FlowerInG__garde__18EBB532" Association="Self.FK__FlowerInG__garde__18EBB532">
+            <End Role="Gardens" EntitySet="Gardens" />
+            <End Role="FlowerInGarden" EntitySet="FlowerInGarden" />
+          </AssociationSet>
+          <AssociationSet Name="FK__FlowerInG__water__19DFD96B" Association="Self.FK__FlowerInG__water__19DFD96B">
+            <End Role="Watering" EntitySet="Watering" />
+            <End Role="FlowerInGarden" EntitySet="FlowerInGarden" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Gardens__userID__04E4BC85" Association="Self.FK__Gardens__userID__04E4BC85">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Gardens" EntitySet="Gardens" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="FlowerProjectModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="FlowerInGarden">
+          <Key>
+            <PropertyRef Name="flowerInGardenId" />
+          </Key>
+          <Property Name="flowerInGardenId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="gardenId" Type="Int32" Nullable="false" />
+          <Property Name="wateringId" Type="Int32" />
+          <Property Name="potType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="potSize" Type="Int32" />
+          <Property Name="flowerName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="description" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="colour" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="picture" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Gardens" Relationship="Self.FK__FlowerInG__garde__18EBB532" FromRole="FlowerInGarden" ToRole="Gardens" />
+          <NavigationProperty Name="Watering" Relationship="Self.FK__FlowerInG__water__19DFD96B" FromRole="FlowerInGarden" ToRole="Watering" />
+        </EntityType>
+        <EntityType Name="Flowers">
+          <Key>
+            <PropertyRef Name="flowerId" />
+          </Key>
+          <Property Name="flowerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="flowerName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="description" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="colour" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="picture" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Gardens">
+          <Key>
+            <PropertyRef Name="gardenId" />
+          </Key>
+          <Property Name="gardenId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userID" Type="Int32" />
+          <Property Name="sun" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="position" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="FlowerInGarden" Relationship="Self.FK__FlowerInG__garde__18EBB532" FromRole="Gardens" ToRole="FlowerInGarden" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__Gardens__userID__04E4BC85" FromRole="Gardens" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="userId" />
+          </Key>
+          <Property Name="userId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userPass" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="userMail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="livingArea" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Gardens" Relationship="Self.FK__Gardens__userID__04E4BC85" FromRole="Users" ToRole="Gardens" />
+        </EntityType>
+        <EntityType Name="Watering">
+          <Key>
+            <PropertyRef Name="wateringId" />
+          </Key>
+          <Property Name="wateringId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="soilKind" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="minDays" Type="Int32" />
+          <Property Name="maxDays" Type="Int32" />
+          <NavigationProperty Name="FlowerInGarden" Relationship="Self.FK__FlowerInG__water__19DFD96B" FromRole="Watering" ToRole="FlowerInGarden" />
+        </EntityType>
+        <Association Name="FK__FlowerInG__garde__18EBB532">
+          <End Role="Gardens" Type="Self.Gardens" Multiplicity="1" />
+          <End Role="FlowerInGarden" Type="Self.FlowerInGarden" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gardens">
+              <PropertyRef Name="gardenId" />
+            </Principal>
+            <Dependent Role="FlowerInGarden">
+              <PropertyRef Name="gardenId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__FlowerInG__water__19DFD96B">
+          <End Role="Watering" Type="Self.Watering" Multiplicity="0..1" />
+          <End Role="FlowerInGarden" Type="Self.FlowerInGarden" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Watering">
+              <PropertyRef Name="wateringId" />
+            </Principal>
+            <Dependent Role="FlowerInGarden">
+              <PropertyRef Name="wateringId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Gardens__userID__04E4BC85">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="Gardens" Type="Self.Gardens" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="userId" />
+            </Principal>
+            <Dependent Role="Gardens">
+              <PropertyRef Name="userID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="FlowerProjectEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="FlowerInGarden" EntityType="Self.FlowerInGarden" />
+          <EntitySet Name="Flowers" EntityType="Self.Flowers" />
+          <EntitySet Name="Gardens" EntityType="Self.Gardens" />
+          <EntitySet Name="Users" EntityType="Self.Users" />
+          <EntitySet Name="Watering" EntityType="Self.Watering" />
+          <AssociationSet Name="FK__FlowerInG__garde__18EBB532" Association="Self.FK__FlowerInG__garde__18EBB532">
+            <End Role="Gardens" EntitySet="Gardens" />
+            <End Role="FlowerInGarden" EntitySet="FlowerInGarden" />
+          </AssociationSet>
+          <AssociationSet Name="FK__FlowerInG__water__19DFD96B" Association="Self.FK__FlowerInG__water__19DFD96B">
+            <End Role="Watering" EntitySet="Watering" />
+            <End Role="FlowerInGarden" EntitySet="FlowerInGarden" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Gardens__userID__04E4BC85" Association="Self.FK__Gardens__userID__04E4BC85">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Gardens" EntitySet="Gardens" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="FlowerProjectModelStoreContainer" CdmEntityContainer="FlowerProjectEntities">
+          <EntitySetMapping Name="FlowerInGarden">
+            <EntityTypeMapping TypeName="FlowerProjectModel.FlowerInGarden">
+              <MappingFragment StoreEntitySet="FlowerInGarden">
+                <ScalarProperty Name="flowerInGardenId" ColumnName="flowerInGardenId" />
+                <ScalarProperty Name="gardenId" ColumnName="gardenId" />
+                <ScalarProperty Name="wateringId" ColumnName="wateringId" />
+                <ScalarProperty Name="potType" ColumnName="potType" />
+                <ScalarProperty Name="potSize" ColumnName="potSize" />
+                <ScalarProperty Name="flowerName" ColumnName="flowerName" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="colour" ColumnName="colour" />
+                <ScalarProperty Name="picture" ColumnName="picture" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Flowers">
+            <EntityTypeMapping TypeName="FlowerProjectModel.Flowers">
+              <MappingFragment StoreEntitySet="Flowers">
+                <ScalarProperty Name="flowerId" ColumnName="flowerId" />
+                <ScalarProperty Name="flowerName" ColumnName="flowerName" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="colour" ColumnName="colour" />
+                <ScalarProperty Name="picture" ColumnName="picture" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Gardens">
+            <EntityTypeMapping TypeName="FlowerProjectModel.Gardens">
+              <MappingFragment StoreEntitySet="Gardens">
+                <ScalarProperty Name="gardenId" ColumnName="gardenId" />
+                <ScalarProperty Name="userID" ColumnName="userID" />
+                <ScalarProperty Name="sun" ColumnName="sun" />
+                <ScalarProperty Name="position" ColumnName="position" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="FlowerProjectModel.Users">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="userPass" ColumnName="userPass" />
+                <ScalarProperty Name="userMail" ColumnName="userMail" />
+                <ScalarProperty Name="livingArea" ColumnName="livingArea" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Watering">
+            <EntityTypeMapping TypeName="FlowerProjectModel.Watering">
+              <MappingFragment StoreEntitySet="Watering">
+                <ScalarProperty Name="wateringId" ColumnName="wateringId" />
+                <ScalarProperty Name="soilKind" ColumnName="soilKind" />
+                <ScalarProperty Name="minDays" ColumnName="minDays" />
+                <ScalarProperty Name="maxDays" ColumnName="maxDays" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="DAL1.FlowerDAL">
+    <Position X="3.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAhAAABAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>FlowerDAL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL1.GardensDAL">
+    <Position X="10.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAFAAAAgAQQAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GardensDAL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL1.FlowerProjectEntities1">
+    <Position X="7.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAAAAAEAEAAEAAAAAAAAAAAAAAAAiA=</HashCode>
+      <FileName>Model1.Context.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL1.FlowerInGarden">
+    <Position X="5.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAIAAAEIEAAAAAAAAgAAAAAAAAAACE=</HashCode>
+      <FileName>FlowerInGarden.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL1.Flowers">
+    <Position X="7.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAIIAAAAIAAAAAAAAAAAAAAAAAQAAAAAAAgA=</HashCode>
+      <FileName>Flowers.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL1.Gardens">
+    <Position X="10.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABCAAAAAAAAAACAAAIAAAAAAAAAAAAAAAAAAAAgE=</HashCode>
+      <FileName>Gardens.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL1.Users">
+    <Position X="3.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAACAAAAEAAAAAAAAAAQAAAQAEAAAA=</HashCode>
+      <FileName>Users.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL1.Watering">
+    <Position X="5.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAAABAAAAAAAEAAAAAAAAAAgAAAAAAAAAAgA=</HashCode>
+      <FileName>Watering.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL1.UserDAL">
+    <Position X="9" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAEAAAgBAFAAAAAAAAAAAAAAAgUAAAAAEAAAA=</HashCode>
+      <FileName>UserDAL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL1.WateringDAL">
+    <Position X="9" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>WateringDAL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="DTO1.FlowerInGardenDTO">
+    <Position X="3" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIQAAIAAAQAwAAAACAAAAAAAAAAAAAAAAAAAABAg=</HashCode>
+      <FileName>FlowerInGardenDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DTO1.FlowersDTO">
+    <Position X="5.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAQAQgAAAAAAAACAAAAgAAAAJAAAAg=</HashCode>
+      <FileName>FlowersDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DTO1.GardensDTO">
+    <Position X="1" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAAgAAAAwgAAAAAgAAAAAAAAACAAAAAAAAAQ=</HashCode>
+      <FileName>GardensDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DTO1.UsersDTO">
+    <Position X="7.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAAAAAAAAAIAAgAARBAAAAAAQAAEAAAAEA=</HashCode>
+      <FileName>UsersDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

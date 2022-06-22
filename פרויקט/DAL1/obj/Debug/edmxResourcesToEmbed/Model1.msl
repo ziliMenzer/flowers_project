@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="FlowerProjectModelStoreContainer" CdmEntityContainer="FlowerProjectEntities">
+    <EntitySetMapping Name="FlowerInGarden">
+      <EntityTypeMapping TypeName="FlowerProjectModel.FlowerInGarden">
+        <MappingFragment StoreEntitySet="FlowerInGarden">
+          <ScalarProperty Name="flowerInGardenId" ColumnName="flowerInGardenId" />
+          <ScalarProperty Name="gardenId" ColumnName="gardenId" />
+          <ScalarProperty Name="wateringId" ColumnName="wateringId" />
+          <ScalarProperty Name="potType" ColumnName="potType" />
+          <ScalarProperty Name="potSize" ColumnName="potSize" />
+          <ScalarProperty Name="flowerName" ColumnName="flowerName" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="colour" ColumnName="colour" />
+          <ScalarProperty Name="picture" ColumnName="picture" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Flowers">
+      <EntityTypeMapping TypeName="FlowerProjectModel.Flowers">
+        <MappingFragment StoreEntitySet="Flowers">
+          <ScalarProperty Name="flowerId" ColumnName="flowerId" />
+          <ScalarProperty Name="flowerName" ColumnName="flowerName" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="colour" ColumnName="colour" />
+          <ScalarProperty Name="picture" ColumnName="picture" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Gardens">
+      <EntityTypeMapping TypeName="FlowerProjectModel.Gardens">
+        <MappingFragment StoreEntitySet="Gardens">
+          <ScalarProperty Name="gardenId" ColumnName="gardenId" />
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <ScalarProperty Name="sun" ColumnName="sun" />
+          <ScalarProperty Name="position" ColumnName="position" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="FlowerProjectModel.Users">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="userPass" ColumnName="userPass" />
+          <ScalarProperty Name="userMail" ColumnName="userMail" />
+          <ScalarProperty Name="livingArea" ColumnName="livingArea" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Watering">
+      <EntityTypeMapping TypeName="FlowerProjectModel.Watering">
+        <MappingFragment StoreEntitySet="Watering">
+          <ScalarProperty Name="wateringId" ColumnName="wateringId" />
+          <ScalarProperty Name="soilKind" ColumnName="soilKind" />
+          <ScalarProperty Name="minDays" ColumnName="minDays" />
+          <ScalarProperty Name="maxDays" ColumnName="maxDays" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
